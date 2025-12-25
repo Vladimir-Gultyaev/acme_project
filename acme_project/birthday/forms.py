@@ -3,7 +3,8 @@ from django.core.exceptions import ValidationError
 # Импорт функции для отправки почты.
 from django.core.mail import send_mail
 
-from .models import Birthday
+# Импортируем модель поздравления.
+from .models import Birthday, Congratulation
 
 BEATLES = {'Джон Леннон', 'Пол Маккартни', 'Джордж Харрисон', 'Ринго Старр'}
 
@@ -46,6 +47,12 @@ class BirthdayForm(forms.ModelForm):
                 'Мы тоже любим Битлз, но введите, пожалуйста, настоящее имя!'
             )
 
+
+class CongratulationForm(forms.ModelForm):
+
+    class Meta:
+        model = Congratulation
+        fields = ('text',)
 
 # birthday/forms.py
 # from django import forms
